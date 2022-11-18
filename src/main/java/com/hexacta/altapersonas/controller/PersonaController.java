@@ -17,6 +17,9 @@ public class PersonaController {
 
     @PostMapping("/persona")
     Persona nuevaPersona(@RequestBody Persona nuevaPersona){
+        if (nuevaPersona.getNombre()==""){
+            throw new
+        }
         nuevaPersona=categorizar(nuevaPersona);
         return personaRepository.save(nuevaPersona);
     }
