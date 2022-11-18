@@ -1,6 +1,7 @@
 package com.hexacta.altapersonas.controller;
 
 import com.hexacta.altapersonas.exception.PersonaNotFoundException;
+import com.hexacta.altapersonas.exception.PersonaSaveErrorException;
 import com.hexacta.altapersonas.model.Persona;
 import com.hexacta.altapersonas.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,10 @@ public class PersonaController {
     @PostMapping("/persona")
     Persona nuevaPersona(@RequestBody Persona nuevaPersona){
         if (nuevaPersona.getNombre()==""){
-            throw new
+            throw new PersonaSaveErrorException();
+        }
+        if (nuevaPersona.getDireccion()==""){
+            throw new PersonaSaveErrorException();
         }
         nuevaPersona=categorizar(nuevaPersona);
         return personaRepository.save(nuevaPersona);

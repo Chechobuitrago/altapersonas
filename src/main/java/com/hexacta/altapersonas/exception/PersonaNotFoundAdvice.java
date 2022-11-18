@@ -13,9 +13,9 @@ import java.util.Map;
 public class PersonaNotFoundAdvice {
 
     @ResponseBody
-    @ExceptionHandler(PersonaNotFoundException.class)
+    @ExceptionHandler(PersonaSaveErrorException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public Map<String,String> exceptionHandler(PersonaNotFoundException exception){
+    public Map<String,String> exceptionHandler(PersonaSaveErrorException exception){
         Map<String,String> errorMap=new HashMap<>();
         errorMap.put("Mensaje de error",exception.getMessage());
 

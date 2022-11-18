@@ -1,7 +1,7 @@
 package com.hexacta.altapersonas.exception;
 
 public class PersonaSaveErrorException extends RuntimeException{
-    PersonaSaveErrorException(){
+    public PersonaSaveErrorException(){
         super("Error en la validacion de la persona ingresada");
     }
 }
