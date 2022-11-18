@@ -18,12 +18,10 @@ public class PersonaController {
 
     @PostMapping("/persona")
     Persona nuevaPersona(@RequestBody Persona nuevaPersona){
-        if (nuevaPersona.getNombre()==""){
+        if (nuevaPersona.getNombre()==""||nuevaPersona.getDireccion()==""){
             throw new PersonaSaveErrorException();
         }
-        if (nuevaPersona.getDireccion()==""){
-            throw new PersonaSaveErrorException();
-        }
+
         nuevaPersona=categorizar(nuevaPersona);
         return personaRepository.save(nuevaPersona);
     }
