@@ -75,11 +75,11 @@ public class Persona {
         if (this.edad >= LIMITE_NINO && this.edad < LIMITE_JOVEN) {
             categoria = "Adolescentes";
         }
-        else if (this.edad < LIMITE_ADULTO) {
+        else if (this.edad < LIMITE_ADULTO && this.edad >= LIMITE_JOVEN) {
             categoria = "Adultos";
         }
-        else {
-            categoria = "Ancianos";
+        else if (this.edad >= LIMITE_ADULTO){
+            categoria = "Octogenario";
         }
         this.setCategoria(categoria);
     }
