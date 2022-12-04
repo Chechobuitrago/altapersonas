@@ -18,6 +18,9 @@ public class Persona {
     private int edad;
     private String categoria;
 
+    private static final int LIMITE_NINO = 11;
+    private static final int LIMITE_JOVEN = 18;
+    private static final int LIMITE_ADULTO = 80;
 
     public String getCategoria() {
         return categoria;
@@ -68,14 +71,16 @@ public class Persona {
     }
 
     public void categorizar() {
-        if (this.edad<11){
-            this.setCategoria("Niños");
-        }else if (this.edad >=11 & this.edad < 18){
-            this.setCategoria("Adolecentes");
-        }else if (this.edad >=18 & this.edad < 80){
-            this.setCategoria("Adultos");
-        }else if (this.edad>=80){
-            this.setCategoria("Octogenario");
+        String categoria = "Niños";
+        if (this.edad >= LIMITE_NINO && this.edad < LIMITE_JOVEN) {
+            categoria = "Adolescentes";
         }
+        else if (this.edad < LIMITE_ADULTO) {
+            categoria = "Adultos";
+        }
+        else {
+            categoria = "Ancianos";
+        }
+        this.setCategoria(categoria);
     }
 }
