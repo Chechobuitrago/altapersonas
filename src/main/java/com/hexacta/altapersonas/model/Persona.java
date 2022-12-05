@@ -71,6 +71,9 @@ public class Persona {
     }
 
     public void categorizar() {
+        if (this.edad<0){
+            throw new ArithmeticException();
+        }
         String categoria = "Niños";
         if (this.edad >= LIMITE_NINO && this.edad < LIMITE_JOVEN) {
             categoria = "Adolescentes";
